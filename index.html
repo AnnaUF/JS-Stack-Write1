@@ -191,6 +191,26 @@ view.ui.add(editor, "top-right");
     }
   </style>
 
+<script>
+require([
+  "esri/Map",
+  "esri/views/MapView",
+  "esri/layers/FeatureLayer",
+  "esri/widgets/Editor",
+  "esri/widgets/Legend", // Import the Legend class
+], function(Map, MapView, FeatureLayer, Editor, Legend) {
+
+
+  // Create a new instance of the Legend class
+  const legend = new Legend({
+    view: view
+  });
+
+  // Add the legend to the view's UI
+  view.ui.add(legend, "bottom-right");
+
+});
+</script>
 </head>
 <body>
 
