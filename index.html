@@ -27,9 +27,11 @@
 
       //adding in the editor widget
       "esri/widgets/Editor",
+      
+    "esri/widgets/Legend"
 
 // why are the below grey?? should be a color I think
-    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Editor) {
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Editor, Legend) {
 
       esriConfig.apiKey = "AAPKf617d57521304ebbbb1ccdfe0a6ab7c9xd9_fQk7Gvm5OOYXsPIGypnSnikFVt3o8pt2rZUIIvbSRkQvtGqxioqliq8SP6xH";
       const map = new Map({
@@ -176,6 +178,17 @@ const editor = new Editor({
 
 // Add the widget to the view
 view.ui.add(editor, "top-right");
+const legend = new Legend({
+            layerInfos: [
+              {
+                layer: myAirports,
+                title: "NY Educational Attainment"
+              }
+            ]
+          });
+
+          // Add widget to the bottom right corner of the view
+          view.ui.add(legend, "bottom-right");
 });
   </script>
 
@@ -190,26 +203,6 @@ view.ui.add(editor, "top-right");
       width: 100%;
     }
   </style>
-
-<script>
-require([
-  "esri/Map",
-  "esri/views/MapView",
-  "esri/layers/FeatureLayer",
-  "esri/widgets/Editor",
-  "esri/widgets/Legend", // Import the Legend class
-], function(Map, MapView, FeatureLayer, Editor, Legend) {
-
-
-  // Create a new instance of the Legend class
-  const legend = new Legend({
-    view: view
-  });
-
-  // Add the legend to the view's UI
-  view.ui.add(legend, "bottom-right");
-
-});
 </script>
 </head>
 <body>
