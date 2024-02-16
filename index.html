@@ -174,15 +174,12 @@ const editor = new Editor({
  view: view,
  layerInfos: [pointInfos]
  }); // End Editor constructor
-
-// Add the widget to the view
-view.ui.add(editor, "top-right");
-});
-let legend = new Legend({
+ let legend = new Legend({
   view: view
 });
 
 view.ui.add(legend, "bottom-right");
+});
   </script>
 
   <!-- css to make a full screen map -->
